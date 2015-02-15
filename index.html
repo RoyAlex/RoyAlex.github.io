@@ -258,34 +258,36 @@
             <h2>Contact</h2>
           </div>
 
-          <div class="col-md-6">
+         <div class="contact col-md-12">
+            <div class="col-md-6">
 
-            <form id="contact-form" role="form">
+              <form id="contact-form" role="form">
 
-              <div class="form-group">
-                <label class="sr-only" for="c_nom">Nom</label>
-                <input type="text" id="c_nom" class="form-control" name="c_nom" placeholder="Nom">
-              </div>
+                <div class="form-group">
+                  <label class="sr-only" for="c_nom">Nom</label>
+                  <input type="text" id="c_nom" class="form-control" name="c_nom" placeholder="Nom">
+                </div>
 
-              <div class="form-group">
-                <label class="sr-only" for="c_courriel">Courriel</label>
-                <input type="email" id="c_courriel" class="form-control" name="c_courriel" placeholder="Courriel">
-              </div>
+                <div class="form-group">
+                  <label class="sr-only" for="c_courriel">Courriel</label>
+                  <input type="email" id="c_courriel" class="form-control" name="c_courriel" placeholder="Courriel">
+                </div>
 
-              <div class="form-group">
-                <textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Votre message"></textarea>
-              </div>
+                <div class="form-group">
+                  <textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Votre message"></textarea>
+                </div>
 
-              <button type="submit" class="btn btn-default">
-                <i class="fa fa-paper-plane icon-before"></i> Envoyé
-              </button>
+                <button type="submit" class="btn btn-default">
+                  <i class="fa fa-paper-plane icon-before"></i> Envoyé
+                </button>
 
-            </form>
+              </form>
 
-            <div class="ajax-response"></div>
+              <div class="ajax-response"></div>
 
+            </div>
+            <div id="map-canvas" class="col-md-6"></div>
           </div>
-          <div id="map-canvas" class="col-md-6"></div>
 
         </div><!-- .row -->
 
