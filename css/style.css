@@ -32,7 +32,7 @@
 
 .footer
 {
-  padding-top: 75px;
+  padding-top: 100px;
   padding-bottom: 75px;
   background-color: #303030;
 }
@@ -50,11 +50,18 @@
   margin-top:-20px;
 }
 
+
+.sociaux 
+{
+  margin-left:-20px;
+}
+
 .sociaux a
 {
   color: #333;
   margin-right:5px;
 }
+
 .sociaux a:hover
 {
   color: #E82323;
@@ -90,4 +97,10 @@
   display: table-cell;
   border-left: 2px solid #FFF;
   border-right: 2px solid #FFF;
+}
+
+#end
+{
+  height: 50px;
+  background-color: black;
 }

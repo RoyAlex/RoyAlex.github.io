@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Alexandre Roy</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,7 +29,8 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <!-- Add your site or application content here -->
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <div id="header-menu"></div>
+        <nav  class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -41,18 +42,18 @@
                     <a class="navbar-brand" href="#">Alexandre Roy</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#Accueil">Accueil</a></li>
-                        <li><a  href="#Profil"> Profil</a></li>
-                        <li><a  href="#Projet"> Projet</a></li>
-                        <li><a href="#Résumé">Résumé</a></li>
-                        <li><a href="#Contact">Contact</a></li>
+                    <ul class="navigation nav navbar-nav navbar-right">
+                        <li nosection="1" class="active"><a href="#Accueil" >Accueil</a></li>
+                        <li nosection="2" class=""><a  href="#Profil"> Profil</a></li>
+                        <li nosection="3" class=""><a  href="#Projet"> Projet</a></li>
+                        <li nosection="4" class=""><a href="#Résumé">Résumé</a></li>
+                        <li nosection="5" class=""><a href="#Contact">Contact</a></li>
                     </ul>
                 </div>
            </div>
         </nav> 
 
-      <div id="Accueil">
+      <div id="Accueil" class="section" nosection="1">
         <img src="img/im1.jpg" class="img-responsive" alt="Responsive image">
       
 
@@ -66,7 +67,7 @@
 
       <div class="clearfix"></div>
     
-      <div id="Profil" class="profil col-md-12">
+      <div id="Profil" class="profil col-md-12 section" nosection="2">
 
         <!-- HEADER -->
         <div class="col-md-11 col-md-offset-1">
@@ -149,7 +150,7 @@
       <div class="clearfix"></div>
      
 
-      <div id="Projet" class="projet col-md-12">
+      <div id="Projet" class="projet col-md-12 section" nosection="3">
         <div class="col-md-6 col-md-offset-1 ">
             <h3>Projet</h3>    
             <p>Projet personnelle</p>             
@@ -188,7 +189,7 @@
 
       <div class="clearfix"></div>
       
-       <div id="Résumé" class="resume col-md-12">
+       <div id="Résumé" class="resume col-md-12 section" nosection="4">
         <div class="col-md-6 col-md-offset-1 ">
             <h3>Résumé</h3>  
             <p>Éducation et expérience</p>             
@@ -220,6 +221,15 @@
           <p>Stage été 2014</p>
         </div>
 
+        <div class="content col-md-5 col-md-offset-3">
+          <h4>Programmeur / Analyste VB.Net</h4>  
+          <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre </p>
+        </div>
+         <div class="col-md-4">
+          <h4>Desjardins Assurances générales</h4>  
+          <p>Stage été 2014</p>
+        </div>
+
 
 
 
@@ -228,7 +238,7 @@
 
      <div class="clearfix"></div>
 
-     <div id="Contact" class="footer">
+     <div id="Contact" class="footer section" nosection="5">
 
       <div class="container">
 
@@ -271,6 +281,8 @@
       </div><!-- .container -->
 
     </div>
+    <div id="end">
+    </div>
 
 
         <!-- jQuery -->
@@ -284,7 +296,99 @@
 
         <!-- Main JavaScript (your custom code) -->
         <script src="js/main.js"></script>
+        <script src="js/jquery.waypoints.js"></script>
+        <script src="js/jquery.scrollTo.js"></script>
+        
+        <script>
+        $(document).ready(function() {
+           
+          section = $('.section');
+          mywindow = $(window);
+          var mainbottom = $('#header-menu').offset().top + $('#header-menu').height(); 
+          //Set up for waypoints navigation
+          section.waypoint( function (direction) {
+            element = $(this).attr("element")
+            //cache the variable of the data-section attribute associated with each section
+            nosection = $(element).attr('nosection');
+            if (direction === 'down') {
+                $('.navigation li[nosection="' + nosection + '"]').addClass('active').prev().removeClass('active');
+            }
 
+          }, {  offset: "25%"});
+
+          section.waypoint( function (direction) {
+            element = $(this).attr("element")
+            //cache the variable of the data-section attribute associated with each section
+            nosection = $(element).attr('nosection');
+            if (direction === 'up') {
+                $('.navigation li[nosection="' + nosection + '"]').addClass('active').next().removeClass('active');
+            }
+
+          }, {  offset: -50});
+
+
+
+
+        mywindow.scroll(function () {
+          if (mywindow.scrollTop() == 0) {
+            $('.navigation li[nosection="1"]').addClass('active');
+            $('.navigation li[nosection="2"]').removeClass('active');
+          }
+          stop = Math.round($(window).scrollTop());
+          var $this = $('.navbar');
+          if(stop > mainbottom){
+            if ($this.hasClass('navbar-default')) {
+              $this.removeClass('navbar-default');
+              $('.navbar').addClass('navbar-inverse');
+            }
+          }
+          else 
+          {
+           if ($this.hasClass('navbar-inverse')) {
+              $this.removeClass('navbar-inverse');
+              $('.navbar').addClass('navbar-default');
+            }
+          } 
+        });
+
+
+        $('.navbar li').click(function(e) {
+            $('.navbar li.active').removeClass('active');
+            var $this = $(this);
+            if (!$this.hasClass('active')) {
+                $this.addClass('active');
+            }
+            e.preventDefault();
+            $.scrollTo(
+              $('.navbar li.active a').attr("href"),
+              {
+                duration: 1000,
+              }
+            );
+        });
+      });
+
+
+
+
+
+            
+
+        
+
+        </script>
+
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-59759457-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/oj.JSFiddle/0.0.1/oj.JSFiddle.min.js"></script>
     </body>
 </html>
