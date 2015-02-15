@@ -20,6 +20,16 @@
 
         <link rel="stylesheet" href="css/style.css">
         
+        <meta property="og:title" content="Alexandre Roy">
+        <meta property="og:description" content="Cette page web est un portfolio présentant mes compétences en programmation, les différents stages et emplois que j'ai occupés ces dernières années et mes projets personnels">
+        <meta property="og:url" content="http://royalex.github.io/AlexRoy/">
+        <meta property="og:site_name" content="Portfolio d'Alexandre Roy">
+        <meta property="og:image" content="http://royalex.github.io/AlexRoy/img/im1.jpg">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website">
+
+
+
 
         <!-- Useful tool to detect browser features (degrade gracefully)  -->
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -248,7 +258,7 @@
             <h2>Contact</h2>
           </div>
 
-          <div class="col-md-12">
+          <div class="col-md-6">
 
             <form id="contact-form" role="form">
 
@@ -275,6 +285,7 @@
             <div class="ajax-response"></div>
 
           </div>
+          <div id="map-canvas" class="col-md-6"></div>
 
         </div><!-- .row -->
 
@@ -299,94 +310,21 @@
         <script src="js/jquery.waypoints.js"></script>
         <script src="js/jquery.scrollTo.js"></script>
         
-        <script>
-        $(document).ready(function() {
-           
-          section = $('.section');
-          mywindow = $(window);
-          var mainbottom = $('#header-menu').offset().top + $('#header-menu').height(); 
-          //Set up for waypoints navigation
-          section.waypoint( function (direction) {
-            element = $(this).attr("element")
-            //cache the variable of the data-section attribute associated with each section
-            nosection = $(element).attr('nosection');
-            if (direction === 'down') {
-                $('.navigation li[nosection="' + nosection + '"]').addClass('active').prev().removeClass('active');
-            }
 
-          }, {  offset: "25%"});
-
-          section.waypoint( function (direction) {
-            element = $(this).attr("element")
-            //cache the variable of the data-section attribute associated with each section
-            nosection = $(element).attr('nosection');
-            if (direction === 'up') {
-                $('.navigation li[nosection="' + nosection + '"]').addClass('active').next().removeClass('active');
-            }
-
-          }, {  offset: -50});
-
-
-
-
-        mywindow.scroll(function () {
-          if (mywindow.scrollTop() == 0) {
-            $('.navigation li[nosection="1"]').addClass('active');
-            $('.navigation li[nosection="2"]').removeClass('active');
-          }
-          stop = Math.round($(window).scrollTop());
-          var $this = $('.navbar');
-          if(stop > mainbottom){
-            if ($this.hasClass('navbar-default')) {
-              $this.removeClass('navbar-default');
-              $('.navbar').addClass('navbar-inverse');
-            }
-          }
-          else 
-          {
-           if ($this.hasClass('navbar-inverse')) {
-              $this.removeClass('navbar-inverse');
-              $('.navbar').addClass('navbar-default');
-            }
-          } 
-        });
-
-
-        $('.navbar li').click(function(e) {
-            $('.navbar li.active').removeClass('active');
-            var $this = $(this);
-            if (!$this.hasClass('active')) {
-                $this.addClass('active');
-            }
-            e.preventDefault();
-            $.scrollTo(
-              $('.navbar li.active a').attr("href"),
-              {
-                duration: 1000,
-              }
-            );
-        });
-      });
-
-
-
-
-
-            
-
-        
-
-        </script>
+        <!--<script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs0hhRZBWCq34etSeYmNmd4j1WwVsIf8E">
+        </script>-->
+        <script src="js/myJs.js"></script>
 
 
         <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         /* (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
           ga('create', 'UA-59759457-1', 'auto');
-          ga('send', 'pageview');
+          ga('send', 'pageview');*/
 
         </script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/oj.JSFiddle/0.0.1/oj.JSFiddle.min.js"></script>

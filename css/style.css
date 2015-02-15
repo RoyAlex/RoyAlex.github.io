@@ -104,3 +104,12 @@
   height: 50px;
   background-color: black;
 }
+
+html,
+body,
+#map-canvas 
+{ 
+  height: 100%; 
+  margin: 0; 
+  padding: 0;
+}
