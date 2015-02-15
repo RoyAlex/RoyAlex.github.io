@@ -9,9 +9,9 @@
     section.waypoint( function (direction) {
       element = $(this).attr("element")
       //cache the variable of the data-section attribute associated with each section
-      nosection = $(element).attr('nosection');
+      nosection = $(element).attr('data-nosection');
       if (direction === 'down') {
-          $('.navigation li[nosection="' + nosection + '"]').addClass('active').prev().removeClass('active');
+          $('.navigation li[data-nosection="' + nosection + '"]').addClass('active').prev().removeClass('active');
       }
 
     }, {  offset: "25%"});
@@ -19,17 +19,17 @@
     section.waypoint( function (direction) {
       element = $(this).attr("element")
       //cache the variable of the data-section attribute associated with each section
-      nosection = $(element).attr('nosection');
+      nosection = $(element).attr('data-nosection');
       if (direction === 'up') {
-          $('.navigation li[nosection="' + nosection + '"]').addClass('active').next().removeClass('active');
+          $('.navigation li[data-nosection="' + nosection + '"]').addClass('active').next().removeClass('active');
       }
 
     }, {  offset: -50});
 
     mywindow.scroll(function () {
       if (mywindow.scrollTop() == 0) {
-        $('.navigation li[nosection="1"]').addClass('active');
-        $('.navigation li[nosection="2"]').removeClass('active');
+        $('.navigation li[data-nosection="1"]').addClass('active');
+        $('.navigation li[data-nosection="2"]').removeClass('active');
       }
       stop = Math.round($(window).scrollTop());
       var $this = $('.navbar');
