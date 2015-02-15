@@ -114,7 +114,16 @@ html,
 body,
 #map-canvas 
 { 
-  height: 100%; 
-  margin: 0; 
+  height: 300px; 
+  margin-top: 0; 
+  padding: 0;
+}
+
+@media screen and (max-width: 980px) {
+html,
+body,
+#map-canvas  {
+  height: 300px; 
+  margin-top: 15px; 
   padding: 0;
 }
