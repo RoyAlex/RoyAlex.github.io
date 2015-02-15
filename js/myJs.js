@@ -73,7 +73,7 @@
       var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        title: 'Usherbrooke!'
+        title: 'Usherbrooke!'})
       }
     google.maps.event.addDomListener(window, 'load', initialize);
 
