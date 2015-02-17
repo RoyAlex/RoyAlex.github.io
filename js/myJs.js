@@ -48,6 +48,18 @@
       } 
     });
 
+    mywindow.resize(function() {
+      if(mywindow.width() < 990)
+      {
+        $('.content').removeClass('border-bottom');
+        $('.date-content').addClass('border-bottom');
+      }
+      else
+      {
+        $('.content').addClass('border-bottom');
+        $('.date-content').removeClass('border-bottom');        
+      }
+    });
 
     $('.navbar li').click(function(e) {
         $('.navbar li.active').removeClass('active');
@@ -63,6 +75,26 @@
           }
         );
     });
+
+    $('.navbar li').click(function(e) {
+        $('.navbar li.active').removeClass('active');
+        var $this = $(this);
+        if (!$this.hasClass('active')) {
+            $this.addClass('active');
+        }
+        e.preventDefault();
+        $.scrollTo(
+          $('.navbar li.active a').attr("href"),
+          {
+            duration: 1000,
+          }
+        );
+    });
+
+    $('button[type="submit"]').click(function(e) {
+        e.preventDefault();
+    });
+    
     function initialize() {
       var myLatlng = new google.maps.LatLng(45.379202,-71.928917);
       var mapOptions = {
